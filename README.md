@@ -45,25 +45,25 @@ dragBox是您要拖入的目标元素，例如。
 1. dreg.in(fn)   拖拽文件进入dragBox区域内时触发,需要传入一个需要执行的函数；
     
         dreg.in(function () {
-			this.style.backgroundColor = "skyblue"; //进入dregBox改变背景色
-		}) 
-		
+		this.style.backgroundColor = "skyblue"; 
+	}) 
+//进入dregBox改变背景色
 
 2. dreg.out(fn)   鼠标拖拽结束后触发,需要传入一个需要执行的函数；
 
         dreg.out(function () {
 		this.style.backgroundColor = "pink"; 
 	})
-	//拖拽结束后改变背景色;
 	
+	//拖拽结束后改变背景色;
     
 3. dreg.mov(fn)   鼠标拖拽过程中触发,需要传入一个需要执行的函数；
 
         dreg.out(function () {
 		this.style.backgroundColor = "red"; 
 	})
+	
     //拖拽过程中改变背景色
-    
     
 4. dreg.dorp(fn(e))     拖拽文件到dragBox区域，当鼠标松开时触发，需要传入一个带有形参的函数，读取文件的信息和结果会以对象的形式放在这个形参中。
 
@@ -71,8 +71,8 @@ dragBox是您要拖入的目标元素，例如。
 		console.log(e);
 		dragBox.style.background = 'url(' + e.result + ')';
 	})
+	
 	 //将读取的图片设置到dragBox元素的背景
-
 
 5.  dreg.slect(fn(e)     当你要使用input标签type=file选择文件时可以使用此方法，在选择文件结束后，同样需要传入一个带有形参的函数，当文件读取结束后会将文件的读取信息和结果以对象的形式存入形参中提供使用。
 
@@ -80,8 +80,8 @@ dragBox是您要拖入的目标元素，例如。
 		console.log(e);
 		dragBox.style.background = 'url(' + e.result + ')';
 	})
-			 //将读取的图片设置到dragBox元素的背景
-
+	
+	 //将读取的图片设置到dragBox元素的背景
 
 # 返回对象
 
