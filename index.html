@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="iconfont.css">
+	<script src="js/dragFly.js"></script>
+	<style type="text/css">
+		.dragBox {
+			height: 300px;
+			position: relative;
+			width: 300px;	
+			margin: 100px auto;
+			/*background-color: gray;*/
+			/*opacity: .5;*/
+			border-radius: 5px;
+		}
+		.dragBox span{
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background-color: black;
+			opacity: .5;
+			z-index: 1;
+			border-radius: 5px;
+		}
+		label {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 2;
+			text-align: center;
+			background-color: purple;
+			transform: translate(-50%,-50%);
+			border-radius: 5px;
+			height: 30px;
+			width: 100px;
+			font: 14px/30px "微软雅黑";
+			color: white;
+			opacity: .8;
+			cursor: pointer;
+		}
+		.input{
+			visibility: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="dragBox">
+		<span></span>
+		<label for="file">选择文件</label>
+		<input id="file" class="input" type="file">
+	</div>
+	<script type="text/javascript">
+		var dragBox = document.querySelector(".dragBox")
+		var input = document.querySelector("input[type=file]");
+		var dreg = new dragFly(dragBox);
+		var inputDrag = new dragFly(input);
+		dreg.drop(function (e) {
+			console.log(e);
+			dragBox.style.background = 'url(' + e.result + ')';
+		})
+		dreg.in(function () {
+			this.style.backgroundColor = "skyblue";
+		})
+		dreg.mov(function () {
+			console.log("hahahahaha")
+		})
+		dreg.out(function () {
+			this.style.backgroundColor = "pink"
+		})
+		inputDrag.slect(function (e) {
+			console.log(e);
+			dragBox.style.background = 'url(' + e.result + ')';
+
+		})
+	</script>
+</body>
+
+</html>

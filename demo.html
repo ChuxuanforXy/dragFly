@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="js/dragFly.js"></script>
+	<style type="text/css">
+		.dragBox {
+			height: 300px;
+			width: 300px;
+		}
+
+		.dragBox {
+			margin: 100px auto;
+			position: relative;
+			background-color: gray;
+			opacity: .5;
+			border-radius: 5px;
+		}
+
+		.input {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			height: 30px;
+			width: 100px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="dragBox">
+		<input class="input" type="file" name="" value="">
+	</div>
+	<script type="text/javascript">
+		var dragBox = document.querySelector(".dragBox")
+		var input = document.querySelector("input[type=file]");
+		var dreg = new dragFly(dragBox);
+		var inputDrag = new dragFly(input);
+		dreg.drop(function (e) {
+			dragBox.style.background = 'url(' + e.result + ')';
+		})
+		dreg.in(function () {
+			this.style.backgroundColor = "skyblue";
+		})
+		dreg.mov(function () {
+			console.log("hahahahaha")
+		})
+		dreg.out(function () {
+			this.style.backgroundColor = "pink"
+		})
+		inputDrag.slect(function (e) {
+			// console.log(e);
+			dragBox.style.background = 'url(' + e.result + ')';
+
+		})
+	</script>
+</body>
+
+</html>
